@@ -165,12 +165,13 @@ def run_qicas(mol, mf, sys_dict, M_qicas, work_dir):
     n_qi, n_e_qi, s_opt, occ_opt, sorted_idx, active_window_rel = qb.step6_determine_active_space(
         gamma_opt, Gamma_opt, n_orbs, socc_rel)
     log.info(f"  QICAS active orbitals (window-relative): {active_window_rel}")
-
-    # Build full MO coefficient matrix with QICAS-rotated active orbitals
-    n_mo = mol.nao_nr()
-    mo_qicas, ncore_qicas = qb.build_casci_mo_coeff(
-        mf.mo_coeff, n_mo, window, active_window_rel,
-        occ_opt, n_elec_active)
+    # Apply F_QI rotation directly to window columns — preserves MO ordering for CASSCF
+    win_start = window["window_start"]
+    win_end   = window["window_end"]
+    mo_qicas  = mf.mo_coeff.copy()
+    mo_qicas[:, win_start:win_end] = mf.mo_coeff[:, win_start:win_end] @ U_total
+    log.info(f"  F_QI rotation applied to window [{win_start}:{win_end}]")
+    log.info(f"  MO shape: {mo_qicas.shape}")
     log.info(f"  QICAS MO shape: {mo_qicas.shape}")
 
     # Save for reuse
