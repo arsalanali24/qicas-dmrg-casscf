@@ -1,0 +1,14 @@
+name: CSD_MnBr4_2m_tet_spin5
+spin_2s: 5
+charge: -2
+n_active: 13
+n_elec: 19
+basis: def2-svp
+ecp: null
+notes: "Mn-Br=2.583 Å, ΔCASCI=-560 mHa, QICAS converges 219 iters vs HF fails 715"
+atoms: |
+  Mn  0.000000  0.000000  0.000000
+  Br  1.491296  1.491296  1.491296
+  Br -1.491296 -1.491296  1.491296
+  Br -1.491296  1.491296 -1.491296
+  Br  1.491296 -1.491296 -1.491296

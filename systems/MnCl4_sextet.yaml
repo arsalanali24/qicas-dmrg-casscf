@@ -1,0 +1,14 @@
+name: CSD_MnCl4_2m_tet_spin5
+spin_2s: 5
+charge: -2
+n_active: 14
+n_elec: 21
+basis: def2-svp
+ecp: null
+notes: "Mn-Cl=2.350 Å, ΔCASCI=-239 mHa, QICAS finds 3.7 mHa lower minimum"
+atoms: |
+  Mn  0.000000  0.000000  0.000000
+  Cl  1.356773  1.356773  1.356773
+  Cl -1.356773 -1.356773  1.356773
+  Cl -1.356773  1.356773 -1.356773
+  Cl  1.356773 -1.356773 -1.356773

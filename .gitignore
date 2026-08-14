@@ -1,0 +1,13 @@
+tmp_*/
+**/node0/
+*.npy
+FCIDUMP
+dmrg.conf
+dmrg.out
+*.e
+*.out
+*.err
+results/*/
+__pycache__/
+*.pyc
+*.chk
