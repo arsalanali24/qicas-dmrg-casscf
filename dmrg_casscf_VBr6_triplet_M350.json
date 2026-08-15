@@ -1,0 +1,22 @@
+{
+  "system": "CSD_VBr6_3m_oct_spin2",
+  "cas": "(18e,10o)",
+  "spin_2s": 2,
+  "charge": -3,
+  "M_casscf": 350,
+  "M_qicas": 100,
+  "conv_tol_grad": 0.0003,
+  "conv_tol_energy": 1e-08,
+  "e_rohf": -16375.375615549618,
+  "e_casscf_hf_init": -16375.37562069895,
+  "converged_hf_init": true,
+  "n_macro_iter_hf_init": 4,
+  "t_h_hf_init": 0.017,
+  "e_casscf_qicas_init": -16375.376330464002,
+  "converged_qicas_init": true,
+  "n_macro_iter_qicas_init": 159,
+  "t_h_qicas_init": 0.462,
+  "iter_speedup_qicas_vs_hf": -155,
+  "e_diff_hf_vs_qicas_mha": 0.7097650523064658,
+  "t_total_h": 0.507
+}

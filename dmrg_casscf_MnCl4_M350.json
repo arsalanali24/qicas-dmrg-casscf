@@ -1,0 +1,22 @@
+{
+  "system": "CSD_MnCl4_2m_tet_spin5",
+  "cas": "(21e,14o)",
+  "spin_2s": 5,
+  "charge": -2,
+  "M_casscf": 350,
+  "M_qicas": 100,
+  "conv_tol_grad": 0.0003,
+  "conv_tol_energy": 1e-08,
+  "e_rohf": -2987.373505366841,
+  "e_casscf_hf_init": -2987.4085789316932,
+  "converged_hf_init": true,
+  "n_macro_iter_hf_init": 272,
+  "t_h_hf_init": 0.888,
+  "e_casscf_qicas_init": -2987.406668744941,
+  "converged_qicas_init": true,
+  "n_macro_iter_qicas_init": 164,
+  "t_h_qicas_init": 0.531,
+  "iter_speedup_qicas_vs_hf": 108,
+  "e_diff_hf_vs_qicas_mha": -1.9101867524113914,
+  "t_total_h": 1.452
+}

@@ -1,0 +1,22 @@
+{
+  "system": "CSD_NiBr6_4m_oct_spin2",
+  "cas": "(22e,12o)",
+  "spin_2s": 2,
+  "charge": -4,
+  "M_casscf": 350,
+  "M_qicas": 100,
+  "conv_tol_grad": 0.0003,
+  "conv_tol_energy": 1e-08,
+  "e_rohf": -16939.00846818392,
+  "e_casscf_hf_init": -16939.00846821265,
+  "converged_hf_init": true,
+  "n_macro_iter_hf_init": 2,
+  "t_h_hf_init": 0.041,
+  "e_casscf_qicas_init": -16939.00863702209,
+  "converged_qicas_init": true,
+  "n_macro_iter_qicas_init": 58,
+  "t_h_qicas_init": 0.598,
+  "iter_speedup_qicas_vs_hf": -56,
+  "e_diff_hf_vs_qicas_mha": 0.16880943803698756,
+  "t_total_h": 0.7
+}
