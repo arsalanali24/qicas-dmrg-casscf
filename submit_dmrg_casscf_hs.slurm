@@ -72,6 +72,7 @@ echo ""
 cd "$REPO_DIR"
 
 python3 dmrg_casscf_hs.py \
+    ${SKIP_HF:+--skip-hf-run} \
     --system   "$SYSTEM"   \
     --M        "$M"        \
     --M-qicas  "$M_QICAS"  \
