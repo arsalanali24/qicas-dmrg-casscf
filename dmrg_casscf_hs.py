@@ -27,6 +27,7 @@ SYSTEMS = {
         "name":     "CSD_MnCl4_2m_tet_spin5",
         "spin_2s":  5, "charge": -2,
         "n_active": 14, "n_elec": 21,
+        "autocas_no": 10, "window_size": 26,
         "basis":    "def2-svp", "ecp": None,
         "atoms": """Mn  0.000000  0.000000  0.000000
 Cl  1.356773  1.356773  1.356773
@@ -38,6 +39,7 @@ Cl  1.356773 -1.356773 -1.356773""",
         "name":     "CSD_MnBr4_2m_tet_spin5",
         "spin_2s":  5, "charge": -2,
         "n_active": 13, "n_elec": 19,
+        "autocas_no": 10, "window_size": 26,
         "basis":    "def2-svp", "ecp": None,
         "atoms": """Mn  0.000000  0.000000  0.000000
 Br  1.491296  1.491296  1.491296
@@ -134,6 +136,7 @@ def run_qicas(mol, mf, sys_dict, M_qicas, work_dir):
     spin  = sys_dict["spin_2s"]
 
     # Step 2: Determine frontier window from ROHF occupations
+    qb.WINDOW_SIZE = sys_dict.get("window_size", 26)  # per-system window
     window = qb.determine_window(mol, mf)
     n_orbs          = window["actual_window_size"]
     n_elec_active   = window["n_elec_active"]
@@ -155,8 +158,12 @@ def run_qicas(mol, mf, sys_dict, M_qicas, work_dir):
 
     # Step 5: Optimize orbitals via F_QI minimization
     log.info("  Running F_QI orbital rotation (step 5)...")
-    inactive_indices = [i for i in range(n_orbs) if i not in socc_rel]
-    active_indices   = list(socc_rel)
+    # Step 4: determine initial inactive/active split (correct approach)
+    n_cas_target = sys_dict.get('autocas_no', 10)
+    fqi_initial, sorted_idx, active_set, inactive_list = qb.step4_initial_fqi(
+        gamma, Gamma, s_vals, occ_nums, n_cas_target)
+    inactive_indices = inactive_list
+    active_indices   = sorted(active_set)
     U_total, gamma_opt, Gamma_opt, opt_history = qb.step5_optimize_orbitals(
         gamma, Gamma, inactive_indices, active_indices)
     log.info("  F_QI optimization done")
