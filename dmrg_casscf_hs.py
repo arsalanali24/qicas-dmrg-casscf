@@ -230,8 +230,20 @@ def run_qicas(mol, mf, sys_dict, M_qicas, work_dir):
 
     # Step 2: Run DMRG on window at M=M_qicas
     log.info(f"  Running DMRG at M={M_qicas}...")
+    # Fix: override relative scratch path in qicas_benchmark before DMRG runs
+    _qicas_scratch = os.path.join(work_dir, f"qicas_dmrg_{os.getpid()}")
+    os.makedirs(_qicas_scratch, exist_ok=True)
+    import pyscf.dmrgscf as _dmrgscf
+    _orig_DMRGCI = _dmrgscf.DMRGCI
+    class _PatchedDMRGCI(_orig_DMRGCI):
+        def __init__(self, *a, **kw):
+            super().__init__(*a, **kw)
+            self.runtimeDir = _qicas_scratch
+            self.scratchDirectory = _qicas_scratch
+    _dmrgscf.DMRGCI = _PatchedDMRGCI
     mc_dmrg, e_dmrg, t_dmrg = qb.run_dmrg_on_window(
         mol, mf, window, max_M=M_qicas)
+    _dmrgscf.DMRGCI = _orig_DMRGCI  # restore
     log.info(f"  DMRG energy: {e_dmrg:.10f} Ha  (t={t_dmrg:.1f}s)")
 
     # Step 3: Extract 1- and 2-RDMs from DMRG wavefunction
