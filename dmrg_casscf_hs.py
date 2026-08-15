@@ -220,6 +220,7 @@ def run_qicas(mol, mf, sys_dict, M_qicas, work_dir):
 
     # Step 2: Determine frontier window from ROHF occupations
     qb.WINDOW_SIZE = sys_dict.get("window_size", 26)  # per-system window
+    qb.SYSTEM['spin'] = sys_dict['spin_2s']  # fix assert n_socc == SYSTEM['spin']
     window = qb.determine_window(mol, mf)
     n_orbs          = window["actual_window_size"]
     n_elec_active   = window["n_elec_active"]
