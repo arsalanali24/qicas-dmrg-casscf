@@ -53,7 +53,7 @@ Br  1.491296 -1.491296 -1.491296""",
         "spin_2s":    3, "charge": -2,
         "n_active":   14, "n_elec": 21,
         "autocas_no": 12, "window_size": 26,
-        "basis":      "def2-svp", "ecp": None,
+        "basis":      "def2-tzvp", "ecp": None,
         "atoms": """Mn  0.000000  0.000000  0.000000
 Cl  1.356773  1.356773  1.356773
 Cl -1.356773 -1.356773  1.356773
