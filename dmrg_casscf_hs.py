@@ -411,12 +411,9 @@ def main():
         "e_rohf":          float(mf.e_tot),
     }
 
-    if not args.skip_hf_run:
+    if not args.skip_hf_run and not args.skip_casscf:
         # ── Step 2: Run 1 — ROHF initialization ──────────────────────────────
         log.info("\n" + "="*60)
-        if args.skip_casscf:
-            log.info("--skip-casscf: QICAS done, skipping CASSCF runs")
-            return
         log.info("RUN 1: DMRG-CASSCF from ROHF canonical orbitals")
         log.info("="*60)
         r1 = run_casscf(mol, mf, sys_dict, mf.mo_coeff,
@@ -445,6 +442,9 @@ def main():
     # ── Step 4: Run 2 — QICAS initialization ─────────────────────────────
     if mo_qicas is not None:
         log.info("\n" + "="*60)
+        if args.skip_casscf:
+            log.info("--skip-casscf: QICAS done, skipping CASSCF runs")
+            return
         log.info("RUN 2: DMRG-CASSCF from QICAS-optimized orbitals")
         log.info("="*60)
         r2 = run_casscf(mol, mf, sys_dict, mo_qicas,
