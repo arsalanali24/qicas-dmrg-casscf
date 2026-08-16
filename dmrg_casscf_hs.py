@@ -78,7 +78,7 @@ Br  1.443376 -1.443376 -1.443376""",
         "spin_2s":    2, "charge": -3,
         "n_active":   10, "n_elec": 18,
         "autocas_no": 10, "window_size": 22,
-        "basis":      "def2-tzvp", "ecp": None,
+        "basis":      "def2-svp", "ecp": None,
         "atoms": """V   0.000000  0.000000  0.000000
 Br  2.318000  0.000000  0.000000
 Br -2.318000  0.000000  0.000000
@@ -92,7 +92,7 @@ Br  0.000000  0.000000 -2.318000""",
         "spin_2s":    2, "charge": -4,
         "n_active":   12, "n_elec": 22,
         "autocas_no": 12, "window_size": 22,
-        "basis":      "def2-tzvp", "ecp": None,
+        "basis":      "def2-svp", "ecp": None,
         "atoms": """Ni  0.000000  0.000000  0.000000
 Br  2.530000  0.000000  0.000000
 Br -2.530000  0.000000  0.000000
@@ -106,7 +106,7 @@ Br  0.000000  0.000000 -2.530000""",
         "spin_2s":    1, "charge": -2,
         "n_active":   12, "n_elec": 23,
         "autocas_no": 12, "window_size": 22,
-        "basis":      "def2-tzvp", "ecp": None,
+        "basis":      "def2-svp", "ecp": None,
         "atoms": """V   0.000000  0.000000  0.000000
 Br  2.318000  0.000000  0.000000
 Br -2.318000  0.000000  0.000000
@@ -121,7 +121,7 @@ Br  0.000000  0.000000 -2.318000""",
         "spin_2s":    0, "charge": -1,
         "n_active":   14, "n_elec": 24,
         "autocas_no": 13, "window_size": 20,
-        "basis":      "def2-tzvp", "ecp": None,
+        "basis":      "def2-svp", "ecp": None,
         "atoms": """Mn  0.000000  0.000000  0.000000
 Br  2.630000  0.000000  0.000000
 Br -2.630000  0.000000  0.000000
