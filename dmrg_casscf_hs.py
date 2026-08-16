@@ -52,7 +52,7 @@ Br  1.491296 -1.491296 -1.491296""",
         "name":       "CSD_MnCl4_2m_tet_spin3",
         "spin_2s":    3, "charge": -2,
         "n_active":   14, "n_elec": 21,
-        "autocas_no": 12, "window_size": 24,
+        "autocas_no": 12, "window_size": 26,
         "basis":      "def2-svp", "ecp": None,
         "atoms": """Mn  0.000000  0.000000  0.000000
 Cl  1.356773  1.356773  1.356773
@@ -64,7 +64,7 @@ Cl  1.356773 -1.356773 -1.356773""",
         "name":       "CSD_MnBr4_2m_tet_spin3",
         "spin_2s":    3, "charge": -2,
         "n_active":   13, "n_elec": 19,
-        "autocas_no": 12, "window_size": 24,
+        "autocas_no": 12, "window_size": 26,
         "basis":      "def2-svp", "ecp": None,
         "atoms": """Mn  0.000000  0.000000  0.000000
 Br  1.443376  1.443376  1.443376
