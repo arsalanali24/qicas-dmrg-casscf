@@ -56,7 +56,7 @@ export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
 # Defaults
 M=${M:-350}
 M_QICAS=${M_QICAS:-100}
-MAX_MACRO=${MAX_MACRO:-150}
+MAX_MACRO=${MAX_MACRO:-100}
 WORK_DIR=${WORK_DIR:-/scratch/hpc-prf-qehpc/hpcmual/dmrg_${SYSTEM}_$$}
 
 REPO_DIR=/pc2/users/h/hpcmual/qicas-dmrg-casscf
@@ -73,6 +73,7 @@ cd "$REPO_DIR"
 
 python3 dmrg_casscf_hs.py \
     ${SKIP_HF:+--skip-hf-run} \
+    ${SKIP_CASSCF:+--skip-casscf} \
     --system   "$SYSTEM"   \
     --M        "$M"        \
     --M-qicas  "$M_QICAS"  \

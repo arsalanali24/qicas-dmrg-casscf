@@ -384,6 +384,8 @@ def main():
     p.add_argument("--work-dir",  type=str, default="./tmp_dmrg_casscf")
     p.add_argument("--skip-hf-run", action="store_true",
                    help="Skip Run 1 (HF-init), run QICAS-init only")
+    p.add_argument("--skip-casscf", action="store_true",
+                   help="Run QICAS only, skip CASSCF runs (for active space verification)")
     p.add_argument("--skip-qicas", action="store_true",
                    help="Skip QICAS step, run HF-init only")
     args = p.parse_args()
@@ -412,6 +414,9 @@ def main():
     if not args.skip_hf_run:
         # ── Step 2: Run 1 — ROHF initialization ──────────────────────────────
         log.info("\n" + "="*60)
+        if args.skip_casscf:
+            log.info("--skip-casscf: QICAS done, skipping CASSCF runs")
+            return
         log.info("RUN 1: DMRG-CASSCF from ROHF canonical orbitals")
         log.info("="*60)
         r1 = run_casscf(mol, mf, sys_dict, mf.mo_coeff,
