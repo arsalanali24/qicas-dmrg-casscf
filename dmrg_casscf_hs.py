@@ -77,7 +77,7 @@ Br  1.443376 -1.443376 -1.443376""",
         "name":       "CSD_VBr6_3m_oct_spin2",
         "spin_2s":    2, "charge": -3,
         "n_active":   10, "n_elec": 18,
-        "autocas_no": 6, "window_size": 22,
+        "autocas_no": 10, "window_size": 22,
         "basis":      "def2-svp", "ecp": None,
         "atoms": """V   0.000000  0.000000  0.000000
 Br  2.318000  0.000000  0.000000
@@ -91,7 +91,7 @@ Br  0.000000  0.000000 -2.318000""",
         "name":       "CSD_NiBr6_4m_oct_spin2",
         "spin_2s":    2, "charge": -4,
         "n_active":   12, "n_elec": 22,
-        "autocas_no": 5, "window_size": 22,
+        "autocas_no": 12, "window_size": 22,
         "basis":      "def2-svp", "ecp": None,
         "atoms": """Ni  0.000000  0.000000  0.000000
 Br  2.530000  0.000000  0.000000
@@ -105,7 +105,7 @@ Br  0.000000  0.000000 -2.530000""",
         "name":       "CSD_VBr6_2m_oct_spin1",
         "spin_2s":    1, "charge": -2,
         "n_active":   12, "n_elec": 23,
-        "autocas_no": 3, "window_size": 20,
+        "autocas_no": 12, "window_size": 20,
         "basis":      "def2-svp", "ecp": None,
         "atoms": """V   0.000000  0.000000  0.000000
 Br  2.318000  0.000000  0.000000
