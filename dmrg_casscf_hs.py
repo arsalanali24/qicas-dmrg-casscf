@@ -104,8 +104,8 @@ Br  0.000000  0.000000 -2.530000""",
     "VBr6_doublet": {
         "name":       "CSD_VBr6_2m_oct_spin1",
         "spin_2s":    1, "charge": -2,
-        "n_active":   12, "n_elec": 23,
-        "autocas_no": 12, "window_size": 20,
+        "n_active":   11, "n_elec": 23,
+        "autocas_no": 11, "window_size": 22,
         "basis":      "def2-svp", "ecp": None,
         "atoms": """V   0.000000  0.000000  0.000000
 Br  2.318000  0.000000  0.000000
