@@ -341,6 +341,8 @@ def run_casscf(mol, mf, sys_dict, mo_start, M, max_cycle_macro,
         gorb = envs.get("norm_gorb",float("nan"))
         log.info(f"  [{label}] Macro {iter_count[0]:4d}: "
                  f"E={e:.10f}  dE={de:+.2e}  |gorb|={gorb:.2e}")
+        if iter_count[0] >= max_cycle_macro:
+            mc.max_cycle_macro = 0  # force CASSCF to stop after this iteration
 
     mc.callback = callback
 
