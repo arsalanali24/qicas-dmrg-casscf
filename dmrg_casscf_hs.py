@@ -334,6 +334,7 @@ def run_casscf(mol, mf, sys_dict, mo_start, M, max_cycle_macro,
     mc.fcisolver.twodot_to_onedot = 20
 
     iter_count = [0]
+    last_e = [float('nan')]
     def callback(envs):
         iter_count[0] += 1
         e    = envs.get("e_tot",    float("nan"))
@@ -341,6 +342,7 @@ def run_casscf(mol, mf, sys_dict, mo_start, M, max_cycle_macro,
         gorb = envs.get("norm_gorb",float("nan"))
         log.info(f"  [{label}] Macro {iter_count[0]:4d}: "
                  f"E={e:.10f}  dE={de:+.2e}  |gorb|={gorb:.2e}")
+        last_e[0] = envs.get("e_tot", float("nan"))
         if iter_count[0] >= max_cycle_macro:
             raise KeyboardInterrupt(f"max_cycle_macro={max_cycle_macro} reached")
 
@@ -351,7 +353,7 @@ def run_casscf(mol, mf, sys_dict, mo_start, M, max_cycle_macro,
         e_tot = mc.kernel(mo_start)[0]
     except KeyboardInterrupt:
         log.info(f"  [{label}] Stopped at max_cycle_macro={max_cycle_macro}")
-        e_tot = mc.e_tot if hasattr(mc, 'e_tot') and mc.e_tot else float("nan")
+        e_tot = last_e[0]
     t_wall = time.time() - t0
 
     log.info(f"\n  {label} RESULT:")
