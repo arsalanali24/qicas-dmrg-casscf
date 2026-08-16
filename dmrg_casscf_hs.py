@@ -342,12 +342,16 @@ def run_casscf(mol, mf, sys_dict, mo_start, M, max_cycle_macro,
         log.info(f"  [{label}] Macro {iter_count[0]:4d}: "
                  f"E={e:.10f}  dE={de:+.2e}  |gorb|={gorb:.2e}")
         if iter_count[0] >= max_cycle_macro:
-            mc.max_cycle_macro = 0  # force CASSCF to stop after this iteration
+            raise KeyboardInterrupt(f"max_cycle_macro={max_cycle_macro} reached")
 
     mc.callback = callback
 
     t0 = time.time()
-    e_tot = mc.kernel(mo_start)[0]
+    try:
+        e_tot = mc.kernel(mo_start)[0]
+    except KeyboardInterrupt:
+        log.info(f"  [{label}] Stopped at max_cycle_macro={max_cycle_macro}")
+        e_tot = mc.e_tot if hasattr(mc, 'e_tot') and mc.e_tot else float("nan")
     t_wall = time.time() - t0
 
     log.info(f"\n  {label} RESULT:")
